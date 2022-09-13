@@ -1,7 +1,11 @@
+require 'search_object'
+require 'search_object/plugin/graphql'
+
 module Queries
   class FetchPostsFilter < Queries::BaseQuery
     include SearchObject.module(:graphql)
-    description 'Lists all posts'
+
+    type [Types::PostType], null: false
 
     scope { Post.all }
 

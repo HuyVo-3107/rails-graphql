@@ -8,6 +8,7 @@ module Types
     # They will be entry points for queries on your schema.
 
     field :posts, resolver: Queries::FetchPosts
+    field :posts_with_filter, resolver: Queries::FetchPostsFilter
     field :comments, resolver: Queries::FetchComments
   end
 end
