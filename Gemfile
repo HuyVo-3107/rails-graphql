@@ -75,3 +75,7 @@ gem 'annotate', group: :development
 gem 'faker', group: :development
 gem 'graphiql-rails', group: :development
 gem 'graphql'
+gem 'graphql-pagination'
+gem 'graphql_playground-rails', group: :development
+gem 'paper_trail'
+gem 'search_object_graphql'

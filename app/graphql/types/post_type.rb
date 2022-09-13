@@ -4,8 +4,8 @@ module Types
   class PostType < Types::BaseObject
     field :id, ID, null: false
     field :title, String
+    field :comments, [Types::CommentType], null: false, extras: [:lookahead]
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :comments, [Comment], null: false
   end
 end
