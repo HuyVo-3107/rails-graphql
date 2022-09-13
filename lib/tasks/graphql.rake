@@ -4,7 +4,7 @@ require 'graphql/rake_task'
 
 GraphQL::RakeTask.new(
   namespace: 'graphql-ruby',
-  schema_name: 'RailsGraphql',
+  schema_name: 'RailsGraphqlSchema',
   idl_outfile: 'schema.graphql',
   json_outfile: 'schema.json'
 )
