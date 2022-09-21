@@ -6,9 +6,11 @@ module Queries
     include SearchObject.module(:graphql)
 
     type [Types::PostType], null: false
+    extras [:lookahead]
 
-    scope { Post.all }
+    scope { ::Post.all }
 
-    option(:title, type: String) { |scope, value| scope.where title: value }
+    option(:title, type: String) { |scope, value| scope.where("title like '%#{value}%'") }
+    option(:first, type: Integer) { |scope, value| scope.limit(value) }
   end
 end

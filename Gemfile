@@ -72,7 +72,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'aws-sdk-cognitoidentityprovider'
 gem 'annotate', group: :development
+gem 'devise'
 gem 'faker', group: :development
 gem 'graphiql-rails', group: :development
 gem 'graphql'

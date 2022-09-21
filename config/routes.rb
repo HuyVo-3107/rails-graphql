@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  devise_for :users
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
     mount GraphqlPlayground::Rails::Engine, at: '/playground', graphql_path: '/graphql'
