@@ -1,11 +1,8 @@
-# This workflow uses actions that are not certified by GitHub.  They are
-# provided by a third-party and are governed by separate terms of service,
-# privacy policy, and support documentation.
-#
-# This workflow will install a prebuilt Ruby version, install dependencies, and
-# run tests and linters.
 name: CI
 on: [push]
+env:
+  DATABASE_HOST: 127.0.0.1
+  DATABASE_USERNAME: root
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,8 +15,7 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       # Add or replace dependency steps here
       - uses: ruby/setup-ruby@v1
         with:
