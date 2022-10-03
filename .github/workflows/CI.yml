@@ -21,11 +21,10 @@ jobs:
         with:
           ruby-version: 3.0.3
           bundler-cache: true
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: yarn
       # Add or replace database setup steps here
       - name: Set up database schema
         run: |
           bundle exec rails yarn:install db:create db:schema:load
+      - name: Run test
+        run: |
+          bundle exec rails test
