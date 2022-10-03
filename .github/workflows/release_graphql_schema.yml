@@ -3,6 +3,7 @@ on:
   pull_request:
     branches: [ main ]
     types: [ closed ]
+    paths: app/graphql/*
 jobs:
   release_graplqh_schema:
     if: github.event.pull_request.merged == true
