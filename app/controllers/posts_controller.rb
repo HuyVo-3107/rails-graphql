@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    p ENV['AWS_COGNITO_USER_POOL_ID']
+    p can?(:read, User.first)
     @posts = Post.all
   end
 

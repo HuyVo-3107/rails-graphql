@@ -2,13 +2,19 @@
 
 <h1>Posts</h1>
 
+<% if can?(:create, User.first) %>
+  <%= link_to "New post", new_post_path %>
+<% end %>
+
+<hr/>
+
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", post %>
+      <% if can?(:read, User.first) %>
+        <%= link_to "Show this post", post %>
+      <% end %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New post", new_post_path %>

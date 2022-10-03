@@ -74,6 +74,7 @@ end
 
 gem 'aws-sdk-cognitoidentityprovider'
 gem 'annotate', group: :development
+gem 'cancancan'
 gem 'devise'
 gem 'faker', group: :development
 gem 'graphiql-rails', group: :development
@@ -81,4 +82,6 @@ gem 'graphql'
 gem 'graphql-pagination'
 gem 'graphql_playground-rails', group: :development
 gem 'paper_trail'
+gem 'paper_trail-association_tracking'
+gem 'rolify'
 gem 'search_object_graphql'

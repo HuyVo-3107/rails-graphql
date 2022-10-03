@@ -5,12 +5,14 @@ class GraphqlController < ApplicationController
   # protect_from_forgery with: :null_session
 
   def execute
+    current_user = User.first
+
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
     context = {
       # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: current_user,
     }
     result = RailsGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

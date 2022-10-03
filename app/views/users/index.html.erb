@@ -6,9 +6,12 @@
   <% @users.each do |user| %>
     <%= render user %>
     <p>
-      <%= link_to "Show this user", user %>
+      <% if can?(:create, User.first) %>
+        <%= link_to "Show this user", user %>
+      <% end %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New user", new_user_path %>
+<% if can?(:create, User.first) %>
+  <%= link_to "New user", new_user_path %>
+<% end %>

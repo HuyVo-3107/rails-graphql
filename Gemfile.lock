@@ -89,6 +89,7 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.4.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -170,6 +171,8 @@ GEM
     paper_trail (13.0.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
+    paper_trail-association_tracking (2.2.1)
+      paper_trail (>= 12.0)
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
@@ -217,6 +220,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rolify (6.0.0)
     rubocop (1.36.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -285,6 +289,7 @@ DEPENDENCIES
   annotate
   aws-sdk-cognitoidentityprovider
   bootsnap
+  cancancan
   capybara
   debug
   devise
@@ -297,8 +302,10 @@ DEPENDENCIES
   jbuilder
   mysql2 (~> 0.5)
   paper_trail
+  paper_trail-association_tracking
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
+  rolify
   rubocop
   search_object_graphql
   selenium-webdriver
