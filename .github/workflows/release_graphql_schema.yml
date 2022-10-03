@@ -1,7 +1,5 @@
 name: Release Graphql Schema
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
     types: [ closed ]
