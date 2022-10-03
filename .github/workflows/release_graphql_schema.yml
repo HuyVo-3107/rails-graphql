@@ -1,9 +1,9 @@
 name: Release Graphql Schema
 on:
   pull_request:
-    branches: [ main ]
-    types: [ closed ]
-    paths: app/graphql/*
+    branches: [main]
+    types: [closed]
+    paths: [app/graphql/*]
 jobs:
   release_graplqh_schema:
     if: github.event.pull_request.merged == true
@@ -30,6 +30,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: tmp/graphql/*.graphql
-          tag: develop Graphql schema
+          tag: Develop Graphql schema
           overwrite: true
           file_glob: true
