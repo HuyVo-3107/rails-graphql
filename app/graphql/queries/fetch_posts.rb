@@ -12,6 +12,7 @@ module Queries
       return posts unless lookahead.selects?(:comments)
 
       posts.includes(:comments)
+      #
       # ::Post.all
 
     end
