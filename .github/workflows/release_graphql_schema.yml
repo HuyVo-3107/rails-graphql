@@ -7,8 +7,28 @@ jobs:
   release_graplqh_schema:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
     steps:
-      - run: |
-          echo The PR was merged
-      - run: |
-          echo The PR was merged 1
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+          bundler-cache: true
+      - name: Graphql schema dump
+        run: |
+          bundle exec rails graphql:schema:dump
+      - name: Upload graphql schema to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: tmp/graphql/*.graphql
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
