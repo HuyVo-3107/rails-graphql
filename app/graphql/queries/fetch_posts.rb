@@ -6,7 +6,6 @@ module Queries
     extras [:lookahead]
 
     def resolve(lookahead:)
-      p Ability.new(context[:current_user]).can? :read, ::Post
       # puts lookahead.arguments
       # posts = Post.order(created_at: :desc)
       #
