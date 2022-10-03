@@ -8,8 +8,12 @@ module Queries
     def resolve(lookahead:)
       # puts lookahead.arguments
       # posts = Post.order(created_at: :desc)
+      #
       # return posts unless lookahead.selects?(:comments)
+      #
       # posts.includes(:comments)
+
+      ::Post.all
 
       ::Post.all
     end
