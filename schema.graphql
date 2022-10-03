@@ -14,7 +14,7 @@ input CreatePostInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  title: String!
+  postInput: PostInput!
 }
 
 """
@@ -32,15 +32,32 @@ type Mutation {
 }
 
 type Post {
-  comments: [Comment!]!
+  comments(cursor: Int): [Comment!]
   createdAt: ISO8601DateTime!
-  id: ID!
+  id: ID
+  status: PostStatus
   title: String
   updatedAt: ISO8601DateTime!
 }
 
+input PostInput {
+  title: String!
+}
+
+"""
+Post status enum
+"""
+enum PostStatus {
+  ACTIVE
+  CANCEL
+}
+
 type Query {
   comments: [Comment!]!
+
+  """
+  Fetch list posts
+  """
   posts: [Post!]!
-  postsWithFilter(title: String): [Post!]!
+  postsWithFilter(first: Int, title: String): [Post!]!
 }
