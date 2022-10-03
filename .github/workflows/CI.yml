@@ -16,12 +16,10 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
     steps:
       - uses: actions/checkout@v3
-      # Add or replace dependency steps here
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.3
           bundler-cache: true
-      # Add or replace database setup steps here
       - name: build
         run: |
           bundle exec rails yarn:install db:create db:schema:load
