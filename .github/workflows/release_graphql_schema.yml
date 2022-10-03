@@ -18,3 +18,5 @@ jobs:
     steps:
       - run: |
           echo The PR was merged
+      - run: |
+          echo The PR was merged 1
