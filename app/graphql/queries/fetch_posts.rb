@@ -6,12 +6,15 @@ module Queries
     # extras [:lookahead]
 
     def resolve(lookahead:)
-      # puts lookahead.arguments
-      # posts = Post.order(created_at: :desc)
-      # return posts unless lookahead.selects?(:comments)
-      # posts.includes(:comments)
+      puts lookahead.arguments
+      posts = Post.order(created_at: :desc)
 
-      ::Post.all
+      return posts unless lookahead.selects?(:comments)
+
+      posts.includes(:comments)
+      #
+      # ::Post.all
+
     end
   end
 end
