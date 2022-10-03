@@ -24,10 +24,10 @@ jobs:
       # Add or replace database setup steps here
       - name: build
         run: |
-          bundle exec rails yarn:install db:create db:schema:load graphql:schema:dump
+          bundle exec rails yarn:install db:create db:schema:load
 #      - name: Run test
 #        run: |
 #          bundle exec rails test
-#      - name: Graphql schema dump
-#        run: |
-#          bundle exec rails graphql:schema:dump
+      - name: Graphql schema dump
+        run: |
+          bundle exec rails graphql:schema:dump
