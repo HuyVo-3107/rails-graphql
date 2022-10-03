@@ -25,6 +25,6 @@ jobs:
       - name: Set up database schema
         run: |
           bundle exec rails yarn:install db:create db:schema:load
-      - name: Run test
-        run: |
-          bundle exec rails test
+#      - name: Run test
+#        run: |
+#          bundle exec rails test
