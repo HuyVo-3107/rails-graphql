@@ -8,14 +8,6 @@ jobs:
   release_graplqh_schema:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-#    services:
-#      mysql:
-#        image: mysql:5.7
-#        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
-#        ports:
-#          - 3306:3306
-#        env:
-#          MYSQL_ALLOW_EMPTY_PASSWORD: yes
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -28,8 +20,6 @@ jobs:
       - name: Upload graphql schema to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: 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
           file: tmp/graphql/*.graphql
-          tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
