@@ -12,8 +12,6 @@ module Queries
       # posts.includes(:comments)
 
       ::Post.all
-
-      ::Post.all
     end
   end
 end
