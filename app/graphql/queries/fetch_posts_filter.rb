@@ -6,7 +6,7 @@ module Queries
     include SearchObject.module(:graphql)
 
     type [Types::PostType], null: false
-    extras [:lookahead]
+    # extras [:lookahead]
 
     scope { ::Post.all }
 
