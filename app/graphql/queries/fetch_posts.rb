@@ -3,7 +3,7 @@ module Queries
     description "Fetch list posts"
 
     type [Types::PostType], null: false
-    # extras [:lookahead]
+    extras [:lookahead]
 
     def resolve(lookahead:)
       # puts lookahead.arguments

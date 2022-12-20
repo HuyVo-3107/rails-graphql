@@ -85,3 +85,7 @@ gem 'paper_trail'
 gem 'paper_trail-association_tracking'
 gem 'rolify'
 gem 'search_object_graphql'
+gem 'jwt'
+gem 'rest-client'
+gem "config"
+

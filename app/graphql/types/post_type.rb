@@ -10,7 +10,11 @@ module Types
     field :comments, [CommentType], null: true do
       argument :cursor, Integer, required: false
     end
+    field :custom_field, String
 
+    def custom_field
+      "Field custom"
+    end
     def comments( cursor: nil)
       scope = dataloader.with(Sources::ActiveRecordCollection, ::Comment, key: :post_id).load(object.id)
 
